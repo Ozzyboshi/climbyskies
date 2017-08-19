@@ -12,7 +12,7 @@ RUN mkdir /usr/local/amiga/vgcc/ndk/include
 RUN mkdir /usr/local/amiga/vgcc/ndk/lib
 
 RUN apt-get update
-RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev
+RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev sox
 
 WORKDIR ~/project/downloads
 RUN curl -OL http://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz
@@ -29,7 +29,6 @@ WORKDIR ~/project/repos
 RUN git clone https://github.com/jca02266/lha.git
 RUN git clone git://github.com/pornel/pngquant.git
 RUN git clone https://github.com/baylej/tmx.git
-RUN git clone git://sox.git.sourceforge.net/gitroot/sox/sox
 RUN git clone https://github.com/alpine9000/gcc.git
 RUN git clone https://github.com/alpine9000/climbyskies.git
 
