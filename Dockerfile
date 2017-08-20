@@ -65,7 +65,7 @@ RUN ./configure --prefix=/usr/local && make && make install
 
 WORKDIR /project/repos/pngquant
 RUN ./configure --prefix=/usr/local
-RUN cd lib
+WORKDIR /project/repos/pngquant/lib
 RUN ./configure --prefix=/usr/local && make && mkdir /usr/local/include/pngquant && cp *.h /usr/local/include/pngquant/ && cp *.a /usr/local/lib
 
 WORKDIR /project/build/GraphicsMagick-1.3.23
