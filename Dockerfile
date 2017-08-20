@@ -13,7 +13,7 @@ RUN mkdir /usr/local/amiga/vgcc/ndk/include
 RUN mkdir /usr/local/amiga/vgcc/ndk/lib
 
 RUN apt-get update
-RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev sox automake libmpc-dev
+RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev sox automake libmpc-dev flex
 
 
 WORKDIR /project/downloads
