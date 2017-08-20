@@ -63,7 +63,7 @@ RUN ./configure --prefix=/usr/local && make && make install
 WORKDIR /project/build/libpng-1.6.31
 RUN ./configure --prefix=/usr/local && make && make install
 
-WORKDIR /project/build/pngquant
+WORKDIR /project/repos/pngquant
 RUN ./configure --prefix=/usr/local
 RUN cd lib
 RUN ./configure --prefix=/usr/local && make && mkdir /usr/local/include/pngquant && cp *.h /usr/local/include/pngquant/ && cp *.a /usr/local/lib
@@ -73,9 +73,6 @@ RUN ./configure --prefix=/usr/local && make && make install
 
 WORKDIR /project/build/
 RUN mv cmake-3.5.1-Darwin-x86_64/CMake.app /Applications
-
-WORKDIR /project/build/sox
-RUN autoreconf -i && ./configure --prefix=/usr/local && make install
 
 WORKDIR /project/build/vasm
 RUN make CPU=m68k SYNTAX=mot && cp vasmm68k_mot /usr/local/amiga/vgcc/bin/
