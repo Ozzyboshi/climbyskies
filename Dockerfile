@@ -13,7 +13,7 @@ RUN mkdir /usr/local/amiga/vgcc/ndk/include
 RUN mkdir /usr/local/amiga/vgcc/ndk/lib
 
 RUN apt-get update
-RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev sox automake libmpc-dev flex
+RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev sox automake libmpc-dev flex cmake libxml2-dev
 
 
 WORKDIR /project/downloads
@@ -78,6 +78,11 @@ RUN mv cmake-3.5.1-Darwin-x86_64/CMake.app /Applications
 
 WORKDIR /project/build/vasm
 RUN make CPU=m68k SYNTAX=mot && cp vasmm68k_mot /usr/local/amiga/vgcc/bin/
+
+WORKDIR /project/repos/tmx
+RUN mkdir build
+WORKDIR /project/repos/tmx/build
+RUN cmake .. && make && make install
 
 WORKDIR /project/repos/gcc
 RUN  ./contrib/download_prerequisites
