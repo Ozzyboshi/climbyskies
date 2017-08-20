@@ -79,7 +79,7 @@ RUN make CPU=m68k SYNTAX=mot && cp vasmm68k_mot /usr/local/amiga/vgcc/bin/
 
 WORKDIR /project/repos/gcc
 RUN  ./contrib/download_prerequisites
-WORKDIR /project/build/vasm
+WORKDIR /project/build
 RUN mkdir gcc && cd gcc && ../../repos/gcc/configure --prefix=/usr/local/amiga/vgcc --target=m68k-amigaos --enable-languages=c ----with-as=/usr/local/amiga/vgcc/bin/vasmm68k_mot
 RUN make -j4 all-gcc
 RUN make -j4 install-gcc
