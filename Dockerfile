@@ -1,9 +1,9 @@
 from ubuntu:16.10
 
-RUN mkdir ~/project
-RUN mkdir ~/project/downloads
-RUN mkdir ~/project/build
-RUN mkdir ~/project/repos
+RUN mkdir /project
+RUN mkdir /project/downloads
+RUN mkdir /project/build
+RUN mkdir /project/repos
 RUN mkdir /usr/local/amiga
 RUN mkdir /usr/local/amiga/vgcc
 RUN mkdir /usr/local/amiga/vgcc/bin
@@ -14,7 +14,7 @@ RUN mkdir /usr/local/amiga/vgcc/ndk/lib
 RUN apt-get update
 RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev sox automake
 
-WORKDIR ~/project/downloads
+WORKDIR /project/downloads
 RUN curl -OL http://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz
 RUN curl -OL http://ftpmirror.gnu.org/automake/automake-1.15.tar.gz
 RUN curl -O http://www.haage-partner.de/download/AmigaOS/NDK39.lha
@@ -25,30 +25,30 @@ RUN curl -OL  https://cmake.org/files/v3.5/cmake-3.5.1-Darwin-x86_64.tar.gz
 RUN curl -OL http://sun.hasenbraten.de/vlink/release/vlink.tar.gz
 RUN curl -OL http://sun.hasenbraten.de/vasm/release/vasm.tar.gz
 
-WORKDIR ~/project/repos
+WORKDIR /project/repos
 RUN git clone https://github.com/jca02266/lha.git
 RUN git clone git://github.com/pornel/pngquant.git
 RUN git clone https://github.com/baylej/tmx.git
 RUN git clone https://github.com/alpine9000/gcc.git
 RUN git clone https://github.com/alpine9000/climbyskies.git
 
-#WORKDIR ~/project/repos/lha
-#RUN aclocal && autoheader && automake -a && autoconf && ./configure --prefix=/usr/local && make && make install 
+WORKDIR /project/repos/lha
+RUN aclocal && autoheader && automake -a && autoconf && ./configure --prefix=/usr/local && make && make install 
 
-#WORKDIR ~/project/build
-#RUN tar xzf ../downloads/autoconf-2.69.tar.gz
-#RUN tar xzf ../downloads/automake-1.15.tar.gz
-#RUN lha x ../downloads/NDK39.lha
-#RUN tar zxf ../downloads/pkg-config-0.29.tar.gz
-#RUN tar zxfv ../downloads/libtool-2.4.6.tar.gz
-#RUN tar zxfv ../downloads/libpng-1.6.28.tar.gz
-#RUN tar zxfv ../downloads/GraphicsMagick-1.3.23.tar.gz
-#RUN tar zxfv ../downloads/cmake-3.5.1-Darwin-x86_64.tar.gz
-#RUN tar zxfv ../downloads/vlink.tar.gz 
-#RUN tar zxfv ../downloads/vasm.tar.gz
+WORKDIR /project/build
+RUN tar xzf ../downloads/autoconf-2.69.tar.gz
+RUN tar xzf ../downloads/automake-1.15.tar.gz
+RUN lha x ../downloads/NDK39.lha
+RUN tar zxf ../downloads/pkg-config-0.29.tar.gz
+RUN tar zxfv ../downloads/libtool-2.4.6.tar.gz
+RUN tar zxfv ../downloads/libpng-1.6.28.tar.gz
+RUN tar zxfv ../downloads/GraphicsMagick-1.3.23.tar.gz
+RUN tar zxfv ../downloads/cmake-3.5.1-Darwin-x86_64.tar.gz
+RUN tar zxfv ../downloads/vlink.tar.gz 
+RUN tar zxfv ../downloads/vasm.tar.gz
 
-#WORKDIR ~/project/build/autoconf-2.69
-#RUN ./configure --prefix=/usr/local && make && make install
+WORKDIR ~/project/build/autoconf-2.69
+RUN ./configure --prefix=/usr/local && make && make install
 
 #WORKDIR ~/project/build/automake-1.15
 #RUN ./configure --prefix=/usr/local && make && make install
