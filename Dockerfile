@@ -40,7 +40,7 @@ RUN tar xzf ../downloads/autoconf-2.69.tar.gz
 RUN tar xzf ../downloads/automake-1.15.tar.gz
 RUN lha x ../downloads/NDK39.lha
 RUN tar zxfv ../downloads/libtool-2.4.6.tar.gz
-RUN tar zxfv ../downloads/libpng-1.6.28.tar.gz
+RUN tar zxfv ../downloads/libpng-1.6.31.tar.gz
 RUN tar zxfv ../downloads/GraphicsMagick-1.3.23.tar.gz
 RUN tar zxfv ../downloads/cmake-3.5.1-Darwin-x86_64.tar.gz
 RUN tar zxfv ../downloads/vlink.tar.gz 
