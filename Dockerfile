@@ -85,7 +85,6 @@ WORKDIR /project/repos/tmx/build
 RUN cmake .. && make && make install
 
 WORKDIR /project/build/vlink
-RUN mkdir objects
 RUN make
 RUN cp vlink /usr/local/amiga/vgcc/bin
 
