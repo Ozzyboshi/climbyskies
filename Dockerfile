@@ -1,3 +1,8 @@
+# Climbyskies compiler
+# for https://github.com/alpine9000/climbyskies
+
+LABEL maintainer="Alessio Garzi <gun101@email.it>"
+
 from ubuntu:16.10
 
 WORKDIR /
@@ -15,7 +20,6 @@ RUN mkdir /usr/local/amiga/vgcc/ndk/lib
 RUN apt-get update
 RUN apt-get install -y curl wget m4 make autotools-dev libdata-dumper-simple-perl git pkg-config zlib1g-dev sox automake libmpc-dev flex cmake libxml2-dev
 
-
 WORKDIR /project/downloads
 RUN curl -OL http://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz
 RUN curl -OL http://ftpmirror.gnu.org/automake/automake-1.15.tar.gz
@@ -32,7 +36,7 @@ RUN git clone https://github.com/jca02266/lha.git
 RUN git clone git://github.com/pornel/pngquant.git
 RUN git clone https://github.com/baylej/tmx.git
 RUN git clone https://github.com/alpine9000/gcc.git
-RUN git clone https://github.com/alpine9000/climbyskies.git
+RUN mkdir climbyskies
 
 WORKDIR /project/repos/lha
 RUN aclocal && autoheader && automake -a && autoconf && ./configure --prefix=/usr/local && make && make install 
@@ -93,8 +97,6 @@ RUN  ./contrib/download_prerequisites
 WORKDIR /project/build
 RUN mkdir gcc && cd gcc && ../../repos/gcc/configure --prefix=/usr/local/amiga/bgcc --target=m68k-amigaosvasm --enable-languages=c --with-as=/usr/local/amiga/vgcc/bin/vasmm68k_mot && make -j4 all-gcc && make -j4 install-gcc
 
-#WORKDIR ~/project/repos/climbyskies
-#RUN make
+WORKDIR /project/repos/climbyskies
 
-
-CMD /bin/bash
+CMD make
