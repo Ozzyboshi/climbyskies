@@ -7,7 +7,7 @@ The compile process is quite long and error prone even if the author published s
 
 ```
 cd
-git clone git clone https://github.com/alpine9000/climbyskies.git
+git clone https://github.com/alpine9000/climbyskies.git
 cd climbyskies/game
 tar zxvf climbyskies-assets.tgz
 cd
