@@ -1,9 +1,9 @@
 # Climbyskies compiler
 # for https://github.com/alpine9000/climbyskies
 
-LABEL maintainer="Alessio Garzi <gun101@email.it>"
-
 from ubuntu:16.10
+
+LABEL maintainer="Alessio Garzi <gun101@email.it>"
 
 WORKDIR /
 RUN mkdir /project
