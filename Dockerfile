@@ -25,7 +25,7 @@ RUN curl -OL http://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz
 RUN curl -OL http://ftpmirror.gnu.org/automake/automake-1.15.tar.gz
 RUN curl -O http://www.haage-partner.de/download/AmigaOS/NDK39.lha
 RUN curl -OL http://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
-RUN curl -OL ftp://ftp.simplesystems.org/pub/png/src/libpng16/libpng-1.6.31.tar.gz
+RUN curl -OL ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.32.tar.gz
 RUN curl -OL http://78.108.103.11/MIRROR/ftp/GraphicsMagick/1.3/GraphicsMagick-1.3.23.tar.gz
 RUN curl -OL  https://cmake.org/files/v3.5/cmake-3.5.1-Darwin-x86_64.tar.gz
 RUN curl -OL http://sun.hasenbraten.de/vlink/release/vlink.tar.gz
@@ -46,7 +46,7 @@ RUN tar xzf ../downloads/autoconf-2.69.tar.gz
 RUN tar xzf ../downloads/automake-1.15.tar.gz
 RUN lha x ../downloads/NDK39.lha
 RUN tar zxfv ../downloads/libtool-2.4.6.tar.gz
-RUN tar zxfv ../downloads/libpng-1.6.31.tar.gz
+RUN tar zxfv ../downloads/libpng-1.6.32.tar.gz
 RUN tar zxfv ../downloads/GraphicsMagick-1.3.23.tar.gz
 RUN tar zxfv ../downloads/cmake-3.5.1-Darwin-x86_64.tar.gz
 RUN tar zxfv ../downloads/vlink.tar.gz 
@@ -66,7 +66,7 @@ RUN cp -r NDK_3.9/Include/linker_libs/* /usr/local/amiga/vgcc/ndk/lib
 WORKDIR /project/build/libtool-2.4.6
 RUN ./configure --prefix=/usr/local && make && make install
 
-WORKDIR /project/build/libpng-1.6.31
+WORKDIR /project/build/libpng-1.6.32
 RUN ./configure --prefix=/usr/local && make && make install
 
 WORKDIR /project/repos/pngquant
