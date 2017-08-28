@@ -97,6 +97,8 @@ RUN  ./contrib/download_prerequisites
 WORKDIR /project/build
 RUN mkdir gcc && cd gcc && ../../repos/gcc/configure --prefix=/usr/local/amiga/bgcc --target=m68k-amigaosvasm --enable-languages=c --with-as=/usr/local/amiga/vgcc/bin/vasmm68k_mot && make -j4 all-gcc && make -j4 install-gcc
 
+RUN rm -rf /project/repos/gcc && rm -rf /project/build/
+
 WORKDIR /project/repos/climbyskies
 
 CMD make
